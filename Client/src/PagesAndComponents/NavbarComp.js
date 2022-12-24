@@ -2,28 +2,26 @@ import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
-
+import { LinkContainer } from 'react-router-bootstrap'
 
 
 
 const NavbarComp = () => {
     return (
-        <Navbar bg="light" expand="sm">
+        <Navbar bg="light" variant="light">
             <Container>
-                <Navbar.Brand href="/">LandLordRP</Navbar.Brand>
+                <Navbar.Brand to="/">Navbar</Navbar.Brand>
                 <Nav className="me-auto">
-                    <Nav.Link to="/">{''}
-                        <Link className='text-decoration-none text-black' to="/">Home</Link>
-                    </Nav.Link>
-                    <Nav.Link to="/todo">{''}
-                        <Link className='text-decoration-none text-black' to="/todo">Todo</Link>
-                    </Nav.Link>
-                    <Nav.Link to="/users">{''}
-                        <Link className='text-decoration-none text-black' to="/users">Users</Link>
-                    </Nav.Link>
+                    <LinkContainer to="/">
+                        <Nav.Link>Home</Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to="/todo">
+                        <Nav.Link>Todo</Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to="/users">
+                        <Nav.Link>Users</Nav.Link>
+                    </LinkContainer>
                 </Nav>
-
             </Container>
         </Navbar>
     )
