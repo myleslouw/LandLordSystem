@@ -19,11 +19,9 @@ const EditRecordComp = (props) => {
 
 
   const handleDetailsChange = () => {
-    console.log("updating...")
     //updates the record in the server
     Axios.put('http://localhost:3001/updateuser', { newName: newUserName, newAddress: newUserAddress, IDRecord: userDetails.idBillingList })
       .then((response) => {
-        console.log("updated client side")
       })
       .catch(error => {
         console.log(error.response)
