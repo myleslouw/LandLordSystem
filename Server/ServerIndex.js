@@ -7,10 +7,10 @@ app.use(cors());
 app.use(express.json())
 
 const db = mysql.createConnection({
-    user: 'root',
-    host: 'localhost',
-    password: 'Skullysucksass69',
-    database: 'billingsystem'
+  user: 'root',
+  host: 'localhost',
+  password: 'Skullysucksass69',
+  database: 'billingsystem'
 });
 
 //Adding to db
@@ -20,16 +20,30 @@ const db = mysql.createConnection({
 
 //server side get
 app.get('/fetchusers', (req, res) => {   //server side get request for showing all the employees
-    db.query('SELECT * FROM billingsystem.billingList',
-      (err, result) => {
-        if (err) {            //if there was an error it will log it 
-          console.log(err);
-        } else {              //if successful
-          res.send(result)
-        }
-      })
-  })
+  db.query('SELECT * FROM billingsystem.billingList',
+    (err, result) => {
+      if (err) {            //if there was an error it will log it 
+        console.log(err);
+      } else {              //if successful
+        res.send(result)
+      }
+    })
+})
+
+app.put('/updateuser', (req, res) => {
+
+  db.query('UPDATE billingsystem.billingList SET Name = ?, Address = ? WHERE idBillingList = ?',
+    [req.body.newName, req.body.newAddress, req.body.IDRecord],
+    (err,result) => {
+      if(err) {
+        console.log(err)
+      } else {
+        res.send(result)
+        console.log('updated server side')
+      }
+    })
+})
 
 app.listen(3001, () => {
-    console.log("X_SERVER RUNNING BRO_X")
+  console.log("X_SERVER RUNNING BRO_X")
 })

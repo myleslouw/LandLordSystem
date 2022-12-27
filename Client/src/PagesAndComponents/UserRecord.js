@@ -3,16 +3,16 @@ import Button from 'react-bootstrap/Button'
 import EditRecordComp from './EditRecordComp';
 import { useState, useContext } from 'react';
 import { UserDetailsContext } from './userDetailsContext';
+import { allUsersContext } from './AllUsersContext';
 
 
 {/* holds the data for each user */ }
 const UserRecord = (props) => {
-    const [showModal, setShowModal] = useState(false);
+    const [showModal, setShowModal] = useState(false)
     const userDetails = useContext(UserDetailsContext)
 
-    const handleEditClose = () => {
-        setShowModal(false);
-    }
+    const handleEditOpen = () => setShowModal(true);
+    const handleEditClose = () => setShowModal(false);
 
     return (
 
@@ -29,7 +29,7 @@ const UserRecord = (props) => {
             <td>{userDetails.Bill}</td>
             <td>{userDetails.PayedLastMonth === 1 ? "Yes" : "No"}</td>
             <td>
-                <Button onClick={() => setShowModal(true)}>Edit</Button>
+                <Button onClick={handleEditOpen}>Edit</Button>
             </td>
         </tr>
     )
