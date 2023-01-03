@@ -1,4 +1,3 @@
-import './App.css';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import NavbarComp from './PagesAndComponents/NavbarComp';
 import HomePage from './PagesAndComponents/HomePage';
@@ -9,12 +8,12 @@ import { AllUsersContextProvider } from './PagesAndComponents/AllUsersContext';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App vw-100 vh-100 d-flex flex-column">
       <Router>
-        <NavbarComp />
+        <NavbarComp currentUser="Myles"/>
         <AllUsersContextProvider>
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/home" element={<HomePage />} />
             <Route path="/todo" element={<TodoPage />} />
             <Route path="/users" element={<UsersPage />} />
           </Routes>

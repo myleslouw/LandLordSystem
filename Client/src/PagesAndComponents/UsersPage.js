@@ -12,7 +12,7 @@ const UsersPage = () => {
     console.log(users.length)
 
     return (
-        <div className='vh-100 w-auto d-flex justify-content-center align-items-start pt-5 bg-dark'>
+        <div className='h-100 w-auto d-flex justify-content-center align-items-start pt-5 bg-dark'>
             <div className='w-50 d-flex justify-content-center m-0 rounded-5 bg-light'>
                     <Table striped hover>
                         <thead>

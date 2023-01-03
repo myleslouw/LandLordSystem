@@ -6,13 +6,15 @@ import { LinkContainer } from 'react-router-bootstrap'
 
 
 
-const NavbarComp = () => {
+const NavbarComp = (props) => {
     return (
         <Navbar bg="light" variant="light">
             <Container>
-                <Navbar.Brand to="/">Navbar</Navbar.Brand>
+                <LinkContainer to="/home">
+                    <Navbar.Brand>ApartmentRP</Navbar.Brand>
+                </LinkContainer>
                 <Nav className="me-auto">
-                    <LinkContainer to="/">
+                    <LinkContainer to="/home">
                         <Nav.Link>Home</Nav.Link>
                     </LinkContainer>
                     <LinkContainer to="/todo">
@@ -22,6 +24,9 @@ const NavbarComp = () => {
                         <Nav.Link>Users</Nav.Link>
                     </LinkContainer>
                 </Nav>
+                <Navbar.Text>
+                    Welcome, {props.currentUser}
+                </Navbar.Text>
             </Container>
         </Navbar>
     )
